@@ -21,23 +21,30 @@ const App = () => {
         }, 1500);
     }
 
-    const toggleMode = () => {
+    const removeBodyClassess = () => {
+
+        document.body.classList.remove("bg-dark");
+        document.body.classList.remove("bg-light");
+        document.body.classList.remove("bg-primary");
+        document.body.classList.remove("bg-danger");
+        document.body.classList.remove("bg-success");
+        document.body.classList.remove("bg-warning");
+    }
+
+    const toggleMode = (cls) => {
+
+        removeBodyClassess();
+
+        document.body.classList.add("bg-" + cls)
+
         if (mode === "light") {
             setMode("dark");
             document.body.style.backgroundColor = "#042743";
             showAlert("Dark mode has been enabled", "success");
-            // document.title = "Text Utils - Dark Mode";
-            // setInterval(() => {
-            //     document.title = "Text Utils is amazing Mode";
-            // }, 2000);
-            // setInterval(() => {
-            //     document.title = "Install Text Utils now";
-            // }, 1500);
         } else {
             setMode("light");
             document.body.style.backgroundColor = "white";
             showAlert("Light mode has been enabled", "success");
-            // document.title = "Text Utils - Light Mode";
         }
     }
 
